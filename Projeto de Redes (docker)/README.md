@@ -8,18 +8,24 @@ Este projeto demonstra uma aplicação web full-stack conteinerizada utilizando 
 
 ## Como usar
 
-1. Inicialize o repositório Git:
+1. Inicialize ou clone o repositório Git:
 
 ```bash
 git init
-git add .
-git commit -m "Estrutura inicial do projeto"
-git remote add origin https://github.com/usuario/meu-projeto.git
-git branch -M main
-git push -u origin main
+git remote add origin https://github.com/usuario/Trabalho_Redes.git
+```
+ou 
+
+```bash
+git clone https://github.com/usuario/Trabalho_Redes.git
+```
+2. Sicronizar com o Trabalho Remoto
+  
+```bash
+git pull
 ```
 
-2. Crie a imagem e suba os contêineres:
+4.  Crie a imagem e suba os contêineres:
 
 ```bash
 docker-compose up --build
@@ -44,10 +50,9 @@ curl http://localhost:5000/items
 - Os itens são persistidos no MongoDB e o endpoint GET utiliza cache Redis por 10 segundos.
 
 ## Estrutura
-- `/frontend` — código do frontend
-- `/backend` — código do backend
+- `/frontend` — diretório com os código do site
+- `/backend` — diretório com o banco de dados
 - `docker-compose.yml` — orquestração dos serviços
-- `.gitignore` — para ignorar node_modules e arquivos desnecessários
 
 ## Repositório
 [https://github.com/usuario/meu-projeto.git](https://github.com/usuario/meu-projeto.git)
