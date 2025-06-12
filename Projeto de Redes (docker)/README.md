@@ -8,18 +8,24 @@ Este projeto demonstra uma aplicação web full-stack conteinerizada utilizando 
 
 ## Como usar
 
-1. Inicialize o repositório Git:
+1. Inicialize ou clone o repositório Git:
 
 ```bash
 git init
-git add .
-git commit -m "Estrutura inicial do projeto"
-git remote add origin https://github.com/usuario/meu-projeto.git
-git branch -M main
-git push -u origin main
+git remote add origin https://github.com/usuario/Trabalho_Redes.git
+```
+ou 
+
+```bash
+git clone https://github.com/usuario/Trabalho_Redes.git
+```
+2. Sicronizar com o Trabalho Remoto
+  
+```bash
+git pull
 ```
 
-2. Crie a imagem e suba os contêineres:
+4.  Crie a imagem e suba os contêineres:
 
 ```bash
 docker-compose up --build
