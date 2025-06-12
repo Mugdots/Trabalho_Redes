@@ -50,10 +50,9 @@ curl http://localhost:5000/items
 - Os itens são persistidos no MongoDB e o endpoint GET utiliza cache Redis por 10 segundos.
 
 ## Estrutura
-- `/frontend` — código do frontend
-- `/backend` — código do backend
+- `/frontend` — diretório com os código do site
+- `/backend` — diretório com o banco de dados
 - `docker-compose.yml` — orquestração dos serviços
-- `.gitignore` — para ignorar node_modules e arquivos desnecessários
 
 ## Repositório
 [https://github.com/usuario/meu-projeto.git](https://github.com/usuario/meu-projeto.git)
