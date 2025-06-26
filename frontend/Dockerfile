@@ -1,9 +1,4 @@
-FROM node:18
-WORKDIR /app
 COPY index.html .
-COPY server.js .
-COPY package.json .
-RUN npm install
+COPY js/script.js js/
+COPY css/style.css css/
 
-CMD ["node", "server.js"]
-EXPOSE 3000 

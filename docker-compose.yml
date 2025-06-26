@@ -14,18 +14,7 @@ services:
     build: ./backend
     container_name: backend
     ports:
-      - 5000:5000
-    networks:
-      - app-network
-
-  mongo:
-    image: mongo:latest
-    container_name: mongoDB
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: mugdots
-      MONGO_INITDB_ROOT_PASSWORD: testeDB
-    ports:
-      - 27017:27017
+      - 5050:5050
     networks:
       - app-network
 
