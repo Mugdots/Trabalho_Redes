@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const port = 3000;
 
 app.use(express.static(__dirname));
 
@@ -8,6 +9,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(3000, () => {
-  console.log('Frontend rodando na porta 3000');
+app.listen(port, () => {
+  console.log('Aplicativo nome rodando na porta ${port}');
 }); 

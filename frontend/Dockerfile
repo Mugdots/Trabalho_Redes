@@ -1,8 +1,9 @@
 FROM node:18
 WORKDIR /app
-COPY . .
-RUN npm install express
-COPY index.html ./index.html
-COPY server.js ./server.js
+COPY index.html .
+COPY server.js .
+COPY package.json .
+RUN npm install
+
 CMD ["node", "server.js"]
 EXPOSE 3000 

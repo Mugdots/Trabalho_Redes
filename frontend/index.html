@@ -2,19 +2,27 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Fullstack App</title>
+  <title>Cadastramento</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 2rem; }
-    form { margin-bottom: 1rem; }
-    ul { list-style: none; padding: 0; }
-    li { margin-bottom: 0.5rem; }
+    body { 
+	    font-family: Arial, sans-serif; margin: 2rem; 
+    }
+    form { 
+	    margin-bottom: 1rem; 
+    }
+    ul { 
+	    list-style: none; padding: 0; 
+    }
+    li { 
+	    margin-bottom: 0.5rem; 
+    }
   </style>
 </head>
 <body>
-  <h1>Itens</h1>
+  <h1>Cadastro</h1>
   <form id="itemForm">
-    <input type="text" id="itemName" placeholder="Novo item" required />
-    <button type="submit">Adicionar</button>
+    <input type="text" id="itemName" placeholder="Nome" required />
+    <button type="submit">Inserir</button>
   </form>
   <ul id="itemsList"></ul>
   <script>

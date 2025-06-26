@@ -5,42 +5,38 @@ services:
     build: ./frontend
     container_name: frontend
     ports:
-      - "3000:3000"
+      - 3000:3000
     networks:
       - app-network
+
 
   backend:
     build: ./backend
     container_name: backend
     ports:
-      - "5000:5000"
-    depends_on:
-      - database
-      - cache
+      - 5000:5000
     networks:
       - app-network
 
-  database:
+  mongo:
     image: mongo:latest
-    container_name: mongo
+    container_name: mongoDB
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mugdots
+      MONGO_INITDB_ROOT_PASSWORD: testeDB
     ports:
-      - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
+      - 27017:27017
     networks:
       - app-network
 
-  cache:
+  redis:
     image: redis:latest
-    container_name: redis
+    container_name: redisCache
     ports:
-      - "6379:6379"
+      - 6379:6379
     networks:
       - app-network
 
 networks:
   app-network:
     driver: bridge
-
-volumes:
-  mongo-data: 
