@@ -53,19 +53,20 @@ router.patch("/:id", async (req, res) => {
 	res.send(result).status(200);
 	} catch (err) {
 		console.error(err);
-		res.send("Não foi possível alterar").status(500)
+		res.status(500).send("Não foi possível alterar")
 	}
 });
 
 router.delete("/:id", async (req, res) => {
 	try {
 		let query = { _id: new ObjectId(req.params.id) };
-		let collections = await db.collections("records");
-		let result = collections.deleteOne(query);
+
+		let collection = await db.collection("records");
+		let result = collection.deleteOne(query);
 		res.send(result).status(200);
 	} catch (err) {
 		consoler.error(err);
-		res.send("Não foi possível deletar").status(500)
+		res.status(500).send("Não foi possível deletar")
 	}
 });
 
