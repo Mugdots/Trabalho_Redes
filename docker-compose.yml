@@ -1,14 +1,25 @@
 version: "3.9"
 
 services:
-  frontend:
+  app1:
     build: ./frontend
-    container_name: frontend
+    container_name: app1
+    environment:
+      - APP_NAME=App1
     ports:
-      - 3000:3000
+      - 3001:3000
     networks:
       - app-network
 
+  app2:
+    build: ./frontend
+    container_name: app2
+    environment:
+      - APP_NAME=App2
+    ports:
+      - 3002:3000
+    networks:
+      - app-network
 
   backend:
     build: ./server
@@ -18,11 +29,24 @@ services:
     networks:
       - app-network
 
-  redis:
-    image: redis:latest
-    container_name: redisCache
-    ports:
-      - 6379:6379
+#  redis:
+#    image: redis:latest
+#    container_name: redisCache
+#    ports:
+#      - 6379:6379
+#    networks:
+#      - app-network
+  
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports: 
+      - 8080:8080
+    volumes: 
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app1
+      - app2
     networks:
       - app-network
 

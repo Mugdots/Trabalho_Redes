@@ -39,21 +39,14 @@ const createLinha = (record) => {
 
 const formatDate = (dateA) => {
     const options = { dateStyle: 'short'}
-    const date = new Date(dateA).toLocaleDateString('pt-br', options);
+    const date = new Date(dateA.replace(/-/g, '\/')).toLocaleDateString('pt-br', options);
     return date;
-}
-
-const fetchRecords = async () => {
-    const resposta = await fetch('http://localhost:5000/record/')
-    const records = await resposta.json()
-
-    return records;
 }
 
 const addRecords = async (event) => {
     event.preventDefault();
 
-    const record = {nome: inputRecord.value, data: dateRecord.value };
+    const record = {nome: inputRecord.value, data: dateRecord.value};
 
     await fetch ("http://localhost:5000/record/", {
                 method: "POST",
@@ -64,6 +57,13 @@ const addRecords = async (event) => {
     inputRecord.value = '';
     dateRecord.value = '';
     loadRecords();
+}
+
+const fetchRecords = async () => {
+    const resposta = await fetch('http://localhost:5000/record/')
+    const records = await resposta.json()
+
+    return records;
 }
 
 const deleteRecord = async (_id) => {

@@ -7,7 +7,6 @@ COPY index.html .
 COPY css ./css
 COPY js ./js
 COPY package.json .
-
 RUN npm install
 
 EXPOSE 3000
