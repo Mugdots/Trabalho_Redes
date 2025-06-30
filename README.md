@@ -25,21 +25,22 @@ git clone https://github.com/usuario/Trabalho_Redes.git
 git pull
 ```
 
-4.  Crie a imagem e suba os contêineres:
+4.  Crie a Imagem:
 
 ```bash
-docker-compose up --build
+docker-compose build
 ```
 
-3. Acesse o frontend em [http://localhost:3000](http://localhost:3000) e a API backend em [http://localhost:5000](http://localhost:5000).
+5. Suba o Container
+```bash
+docker-compose up
+´´´
+
+6. Acesse o Site em [http://localhost:8080], e por meio do proxy reverso, você entrará no site com o banco de dados
 
 ## Testando a aplicação
 
-- Para criar um novo item, utilize o formulário no frontend ou envie um POST para a API:
-
-```bash
-curl -X POST http://localhost:5000/items -H "Content-Type: application/json" -d '{"name": "Exemplo"}'
-```
+- Para criar um novo item, utilize o formulário no site ou envie o item pelo site do mongoDB
 
 - Para listar os itens cadastrados:
 
@@ -47,12 +48,11 @@ curl -X POST http://localhost:5000/items -H "Content-Type: application/json" -d 
 curl http://localhost:5000/items
 ```
 
-- Os itens são persistidos no MongoDB e o endpoint GET utiliza cache Redis por 10 segundos.
-
 ## Estrutura
-- `/frontend` — diretório com os código do site
-- `/backend` — diretório com o banco de dados
-- `docker-compose.yml` — orquestração dos serviços
+- `/frontend` — diretório com os código do site (com script, html e css)
+- `/server` — diretório aonde está o cache e o servidor do banco de dados, juntamente com o backend implementado
+- `/nginx´ — diretório com a configuração com porxy reverso do nginx
+- `docker-compose.yml` — 
 
 ## Repositório
 [https://github.com/usuario/meu-projeto.git](https://github.com/usuario/meu-projeto.git)
